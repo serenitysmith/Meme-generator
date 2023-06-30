@@ -5,6 +5,7 @@
 //  * - Don't worry about adding any functionality yet
 //  */
 // this is what i did on my pwn and it works but lesson did it different- see below
+/// changed the name 
 import memeData from "./memeData";
 import img from "./memeImg.png";
 export default function Meme() {
