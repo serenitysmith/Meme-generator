@@ -9,15 +9,14 @@ function App() {
  <Header/>
     <Meme/>
     <Main/>
- 
     </div>
    
-  );
-}
+  );}
+
 
 export default App;
 
-//
+
  
 
 
