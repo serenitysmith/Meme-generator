@@ -1,14 +1,14 @@
 
 import './App.css';
-import Main from './components/Main/main'
+
 import  Header from './components/Header/header'
 import Meme from './components/Meme/meme'
 function App() {
   return (
     <div>
  <Header/>
-    <Meme/>
-    <Main/>
+   <Meme/>
+  
     </div>
    
   );}
