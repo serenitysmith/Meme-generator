@@ -4,25 +4,39 @@
 //  *   with our 2 inputs and the button.
 //  * - Don't worry about adding any functionality yet
 //  */
-// this is what i did on my pwn and it works but lesson did it different- see below
+// this is what i did on my on and it works but lesson did it different- see below
 /// changed the name 
+import React from "react";
 import memeData from "./memeData";
 import img from "./memeImg.png";
 export default function Meme() {
-  // add this event handle, whne button is clicked, console logs i was clicked
+  const [memeImage, setMemeImage] = React.useState("")
+  // add this event handle, when button is clicked, console logs i was clicked
+  /**
+     * Challenge: Save the random meme URL in state
+     * - Create new state called `memeImage` with an
+     *   empty string as default
+     * - When the getMemeImage function is called, update
+     *   the `memeImage` state to be the random chosen
+     *   image URL
+     * - Below the div.form, add an <img /> and set the
+     *   src to the new `memeImage` state you created
+     */
   function getMemeImage() {
     // console.log("Clicked")
     const memeArray = memeData.data.memes;
     // above calls the meems arrya from the memeData file and below call math.floor, math.random to call a random meme when button is clicked
     const randomNumber = Math.floor(Math.random() * memeArray.length);
+    setMemeImage(memeArray[randomNumber].url)
     // console.log to chck if button is working conole.log, logs random number everytime button is clicked
     // console.log(randomNumber)
     // const url below pulls a random url from array in memeData file
-    const url = memeArray[randomNumber].url;
+    // const url = memeArray[randomNumber].url;
 
     // console.log(url)
   }
   return (
+  <div>
     <div className="inputs">
       <label>
         <input className="Shutup" defaultValue="Shut up" />
@@ -34,7 +48,10 @@ export default function Meme() {
       <button onClick={getMemeImage} className="img-buttton">
         <img src={img} alt="button" className="meme-button"></img>
       </button>
+
     </div>
+    <img src={memeImage} alt="" className="meme--image"></img>
+   </div>
   );
 }
 ///hhh
