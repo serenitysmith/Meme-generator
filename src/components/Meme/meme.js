@@ -10,7 +10,15 @@ import React from "react";
 import memeData from "./memeData";
 import img from "./memeImg.png";
 export default function Meme() {
-  const [memeImage, setMemeImage] = React.useState("")
+  // const [memeImage, setMemeImage] = React.useState("")
+
+  const[meme, setMeme] = React.useState({
+    topText: "",
+    bottomText: "",
+randomImage: ""
+  })
+
+  const [allMemeImages, setAllMemeimages] = React.useState(memeData)
   // add this event handle, when button is clicked, console logs i was clicked
   /**
      * Challenge: Save the random meme URL in state
@@ -22,12 +30,25 @@ export default function Meme() {
      * - Below the div.form, add an <img /> and set the
      *   src to the new `memeImage` state you created
      */
+    
+
+
+    // second challenge, getting words to work with the meme chnage 
   function getMemeImage() {
     // console.log("Clicked")
     const memeArray = memeData.data.memes;
     // above calls the meems arrya from the memeData file and below call math.floor, math.random to call a random meme when button is clicked
     const randomNumber = Math.floor(Math.random() * memeArray.length);
-    setMemeImage(memeArray[randomNumber].url)
+    const url = memeArray[randomNumber].url
+   
+   // changed set meme imge to set meme and put it in a functrioj
+// need to get previous meem data to switch it to new meme 
+   setMeme(prevMeme => ({
+    ...prevMeme,
+    randomImage: url
+   }) )   
+   
+    // setMeme(memeArray[randomNumber].url)
     // console.log to chck if button is working conole.log, logs random number everytime button is clicked
     // console.log(randomNumber)
     // const url below pulls a random url from array in memeData file
@@ -50,7 +71,7 @@ export default function Meme() {
       </button>
 
     </div>
-    <img src={memeImage} alt="" className="meme--image"></img>
+    <img src={meme.randomImage } alt="" className="meme--image"></img>
    </div>
   );
 }
