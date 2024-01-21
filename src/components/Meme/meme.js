@@ -4,7 +4,7 @@
 //  *   with our 2 inputs and the button.
 //  * - Don't worry about adding any functionality yet
 //  */
-// this is what i did on my on and it works but lesson did it different- see below
+// this is what i did on my own and it works but lesson did it different- see below
 /// changed the name 
 import React from "react";
 import memeData from "./memeData";
@@ -41,8 +41,8 @@ randomImage: ""
     const randomNumber = Math.floor(Math.random() * memeArray.length);
     const url = memeArray[randomNumber].url
    
-   // changed set meme imge to set meme and put it in a functrioj
-// need to get previous meem data to switch it to new meme 
+   // changed set meme img to set meme and put it in a function
+// need to get previous meme data to switch it to new meme 
    setMeme(prevMeme => ({
     ...prevMeme,
     randomImage: url
